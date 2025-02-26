@@ -22,7 +22,7 @@ The fastest way to get started and access a Tenstorrent instance is to use the p
 
 This service will be deployed on a Tenstorrent instance with a ready-to-use environment, including Tenstorrent system tools and drivers, [TT-Metalium](https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/index.html), and [TT-NN](https://docs.tenstorrent.com/tt-metal/latest/ttnn/index.html) installed using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-20.04-amd64-release:latest-rc` Docker image.
 
-### Connect to your Tenstorrent intance
+### Connect to your Tenstorrent instance
 
 When your service is deployed, you can connect to your Tenstorrent instance using the Koyeb CLI.
 
