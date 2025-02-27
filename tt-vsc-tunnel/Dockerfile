@@ -1,4 +1,4 @@
-FROM ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-20.04-amd64-release/wormhole_b0:latest-rc
+FROM ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-20.04-amd64-release:latest-rc
 
 ARG DEBIAN_FRONTEND=noninteractive
 
