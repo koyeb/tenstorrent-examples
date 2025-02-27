@@ -20,4 +20,4 @@ Get started by creating the service on Koyeb by clicking the button below:
 
 Clicking on this button brings you to the Koyeb Service creation page with the settings pre-configured to launch this application. Make sure to modify the `TAILSCALE_AUTHKEY` environment variable with your own value during the configuration process.
 
-Once the service is deployed, you can SSH into the `root` account of your Koyeb Instance from another machine to your Tailscale network. The Koyeb Instance's Tailscale hostname should have the following format: `tt-on-koyeb`. You can change the hostname by modifying the `NODE_NAME` environment variable.
+Once the service is deployed, you can SSH into the `root` account of your Koyeb Instance from another machine on your Tailscale network. The Koyeb Instance's Tailscale hostname should have the following format: `tt-on-koyeb`. You can change the hostname by modifying the `NODE_NAME` environment variable.
