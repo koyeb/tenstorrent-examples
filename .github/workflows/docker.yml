@@ -30,9 +30,13 @@ jobs:
           push: true
           context: ./tt-tailscale-ssh
           file: ./tt-tailscale-ssh/Dockerfile
+          tags: |
+            koyeb/tt-tailscale-ssh
 
       - name: Build and push images for koyeb/tt-vsc-tunnel
         uses: docker/build-push-action@v6
         with:
           push: true
           file: ./tt-vsc-tunnel/Dockerfile
+          tags: |
+            koyeb/tt-vsc-tunnel
