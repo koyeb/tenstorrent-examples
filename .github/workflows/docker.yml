@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push images for koyeb/tt-tailscale-ssh
+      - name: Build and push images for koyeb/tt-tailscale-ssh Ubuntu 20.04
         uses: docker/build-push-action@v6
         with:
           push: true
@@ -36,10 +36,31 @@ jobs:
           tags: |
             koyeb/tt-tailscale-ssh
 
-      - name: Build and push images for koyeb/tt-vsc-tunnel
+      - name: Build and push images for koyeb/tt-tailscale-ssh Ubuntu 22.04 dev
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: ./tt-tailscale-ssh
+          file: ./tt-tailscale-ssh/Dockerfile
+          build-args: |
+            BASE_IMAGE=ghcr.io/tenstorrent/tt-metal/tt-metalium/ubuntu-22.04-dev-amd64:latest
+          tags: |
+            koyeb/tt-tailscale-ssh:ubuntu-22.04-dev
+
+      - name: Build and push images for koyeb/tt-vsc-tunnel Ubuntu 20.04
         uses: docker/build-push-action@v6
         with:
           push: true
           file: ./tt-vsc-tunnel/Dockerfile
           tags: |
             koyeb/tt-vsc-tunnel
+
+      - name: Build and push images for koyeb/tt-vsc-tunnel Ubuntu 22.04 dev
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          file: ./tt-vsc-tunnel/Dockerfile
+          build-args: |
+            BASE_IMAGE=ghcr.io/tenstorrent/tt-metal/tt-metalium/ubuntu-22.04-dev-amd64:latest
+          tags: |
+            koyeb/tt-vsc-tunnel:ubuntu-22.04-dev
