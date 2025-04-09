@@ -16,7 +16,7 @@ To use this example, you need:
 
 Get started by creating the service on Koyeb by clicking the button below:
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-vsc-tunnel&type=docker&image=koyeb%2Ftt-vsc-tunnel&privileged=true&service_type=worker&instance_type=gpu-tenstorrent-n300s&regions=was)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-vsc-tunnel&type=docker&image=koyeb%2Ftt-vsc-tunnel&privileged=true&service_type=worker&instance_type=gpu-tenstorrent-n300s&regions=na)
 
 ### Configuring VSCode for Remote Development
 
