@@ -1,0 +1,76 @@
+ARG BASE_IMAGE=ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-20.04-amd64-release:latest-rc
+
+FROM ${BASE_IMAGE}
+
+ARG TT_METAL_RELEASE=v0.57.0-rc23
+ARG VLLM_RELEASE=f8b5b72
+
+ARG HF_MODEL
+
+ENV ARCH_NAME=wormhole_b0 \
+  TT_METAL_HOME=/tt-metal \
+  PYTHONPATH=/tt-metal \
+  DEBIAN_FRONTEND=noninteractive \
+  PATH="/tt-metal/venv/bin:$PATH" \
+  VLLM_TARGET_DEVICE="tt" \
+  MESH_DEVICE=N300 \
+  WH_ARCH_YAML=wormhole_b0_80_arch_eth_dispatch.yaml \
+  HF_HOME=/model-cache \
+  HF_HUB_ENABLE_HF_TRANSFER=1 \
+  HF_MODEL=$HF_MODEL
+
+RUN git clone \
+  --depth 1 \
+  --single-branch \
+  --recurse-submodules \
+  --shallow-submodules \
+  --branch ${TT_METAL_RELEASE} \
+  https://github.com/tenstorrent/tt-metal.git \
+  /tt-metal
+
+WORKDIR /tt-metal
+
+RUN ./build_metal.sh
+RUN python3 -m venv venv
+
+RUN pip install --no-cache-dir --force-reinstall pip==21.2.4 && \
+  pip config set global.extra-index-url https://download.pytorch.org/whl/cpu && \
+  pip install --no-cache-dir setuptools wheel==0.45.1 && \
+  pip install --no-cache-dir -e . && \
+  pip install --no-cache-dir -r tt_metal/python_env/requirements-dev.txt
+
+RUN git clone \
+  https://github.com/tenstorrent/vllm.git \
+  /vllm && \
+  cd /vllm && \
+  git checkout ${VLLM_RELEASE}
+
+WORKDIR /vllm
+
+RUN pip install --no-cache-dir -e . && \
+  pip install --no-cache-dir compressed-tensors && \
+  pip install --no-cache-dir hf_transfer
+
+RUN case "$HF_MODEL" in \
+  "Qwen/Qwen2.5-7B-Instruct") \
+    pip install --no-cache-dir -r /tt-metal/models/demos/llama3/requirements.txt ;; \
+  *) \
+    pip install --no-cache-dir -r /tt-metal/models/tt_transformers/requirements.txt ;; \
+esac
+
+{% for f in hf_model_files %}
+RUN --mount=type=secret,id=hf_token,env=HF_TOKEN \
+  python - <<EOF
+import os
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id=os.environ["HF_MODEL"],
+    allow_patterns=["{{ f }}"]
+)
+EOF
+{% endfor %}
+
+ENV HF_HUB_OFFLINE=1
+
+ENTRYPOINT python /vllm/examples/server_example_tt.py --model $HF_MODEL

@@ -1,0 +1,27 @@
+meta-llama/Llama-3.1-8B-Instruct:
+  folder: ./tt-models/engines/vllm
+  dockerfile_tpl: vllm_template.Dockerfile.jinja
+  tag: koyeb/tt-meta-llama-3.1-8b-instruct:latest
+  vllm_release: f8b5b72
+  tt_metal_release: v0.57.0-rc23
+
+meta-llama/Llama-3.2-1B-Instruct:
+  folder: ./tt-models/engines/vllm
+  dockerfile_tpl: vllm_template.Dockerfile.jinja
+  tag: koyeb/tt-meta-llama-3.2-1b-instruct:latest
+  vllm_release: f8b5b72
+  tt_metal_release: v0.57.0-rc23
+
+meta-llama/Llama-3.2-3B-Instruct:
+  folder: ./tt-models/engines/vllm
+  dockerfile_tpl: vllm_template.Dockerfile.jinja
+  tag: koyeb/tt-meta-llama-3.2-3b-instruct:latest
+  vllm_release: f8b5b72
+  tt_metal_release: v0.57.0-rc23
+
+Qwen/Qwen2.5-7B-Instruct:
+  folder: ./tt-models/engines/vllm
+  dockerfile_tpl: vllm_template.Dockerfile.jinja
+  tag: koyeb/tt-qwen-qwen2.5-7b-instruct:latest
+  vllm_release: e2e0002
+  tt_metal_release: v0.56.0-rc33

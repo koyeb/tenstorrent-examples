@@ -1,4 +1,4 @@
-name: Push Docker Images
+name: Build and push dev containers
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  docker:
+  build-dev-containers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
