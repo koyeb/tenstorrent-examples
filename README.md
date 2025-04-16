@@ -24,3 +24,7 @@ _This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metaliu
 Using this one-click application, you will be able to get direct SSH access to the Tenstorrent instance using Tailscale.
 
 _This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-amd64-release:latest-rc` Docker image with Docker pre-installed._
+
+#### [One-click models](https://github.com/koyeb/tenstorrent-examples/tree/main/tt-models)
+
+Using one of these one-click models, you will be able to deploy a vLLM inference server serving a model on a Tenstorrent instance.

@@ -1,0 +1,84 @@
+name: Build and push model examples containers
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  find-model-examples-to-build:
+    runs-on: koyeb-tt-runner
+    outputs:
+      examples: ${{ steps.get-model-examples.outputs.examples }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get model examples
+        id: get-model-examples
+        uses: mikefarah/yq@master
+        with:
+          cmd: |
+            echo 'examples='"$(yq eval -o=json -I=0 'to_entries | map({"folder": .value.folder, "hf_model_id": .key, "tag": .value.tag, "dockerfile_tpl": .value.dockerfile_tpl})' ./tt-models/model_examples.yml)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_OUTPUT: $GITHUB_ENV
+
+  build-model-examples:
+    needs: find-model-examples-to-build
+    runs-on: koyeb-tt-runner
+    strategy:
+      matrix:
+        example: ${{ fromJson(needs.find-model-examples-to-build.outputs.examples) }}
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jinja2 huggingface_hub
+
+      - name: Generate Dockerfile
+        run: |
+          python ./tt-models/utils/scripts/generate_dockerfile_from_tpl.py \
+            --dockerfile-template ${{ matrix.example.dockerfile_tpl }} \
+            --dockerfile-output ${{ matrix.example.folder }}/Dockerfile \
+            --model ${{ matrix.example.hf_model_id }} \
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build image for ${{ matrix.example.hf_model_id }}
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: ${{ matrix.example.folder }}
+          file: ${{ matrix.example.folder }}/Dockerfile
+          network: host
+          tags: |
+            ${{ matrix.example.tag }}
+          build-args: |
+            HF_MODEL=${{ matrix.example.hf_model_id }}
+          secrets: |
+            "hf_token=${{ secrets.HUGGINGFACE_TOKEN }}"
+          cache-from: type=registry,image-manifest=true,oci-mediatypes=true,compression=zstd,ref=${{ matrix.example.tag }}-buildcache
+          cache-to: type=registry,ref=${{ matrix.example.tag }}-buildcache,mode=max
