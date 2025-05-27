@@ -73,4 +73,6 @@ EOF
 
 ENV HF_HUB_OFFLINE=1
 
-ENTRYPOINT python /vllm/examples/server_example_tt.py --model $HF_MODEL
+COPY ./docker-entrypoint.py /vllm/examples/docker-entrypoint.py
+
+ENTRYPOINT python /vllm/examples/docker-entrypoint.py --model $HF_MODEL
