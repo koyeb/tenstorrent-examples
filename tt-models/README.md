@@ -26,23 +26,23 @@ To deploy one of these one-click models on Koyeb, you need:
 
 **deepseek-ai/DeepSeek-R1-Distill-Llama-8B**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-deepseek-ai-deepseek-r1-distill-llama-8b&type=docker&image=koyeb%2Ftt-deepseek-ai-deepseek-r1-distill-llama-8b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&env%5BLLAMA_DIR%5D=%2Fmodels%2FDeepSeek-R1-Distill-Llama-8B&hc_grace_period%5B8000%5D=600)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-deepseek-ai-deepseek-r1-distill-llama-8b&type=docker&image=koyeb%2Ftt-deepseek-ai-deepseek-r1-distill-llama-8b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&env%5BLLAMA_DIR%5D=%2Fmodels%2FDeepSeek-R1-Distill-Llama-8B&hc_grace_period%5B8000%5D=600)
 
 **meta-llama/Llama-3.1-8B-Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-1-8b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.1-8b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.1-8B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.1_json.jinja&entrypoint=--enable-auto-tool-choice)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-1-8b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.1-8b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.1-8B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.1_json.jinja&entrypoint=--enable-auto-tool-choice)
 
 **Qwen/Qwen2.5-7B-Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-qwen-qwen-2-5-7b-instruct&type=docker&image=koyeb%2Ftt-qwen-qwen2.5-7b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&hc_grace_period%5B8000%5D=600&env[VLLM_ALLOW_LONG_MAX_MODEL_LEN]=1&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=Qwen/Qwen2.5-7B-Instruct&entrypoint=--tool-call-parser&entrypoint=hermes&entrypoint=--enable-auto-tool-choice)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-qwen-qwen-2-5-7b-instruct&type=docker&image=koyeb%2Ftt-qwen-qwen2.5-7b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&hc_grace_period%5B8000%5D=600&env[VLLM_ALLOW_LONG_MAX_MODEL_LEN]=1&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=Qwen/Qwen2.5-7B-Instruct&entrypoint=--tool-call-parser&entrypoint=hermes&entrypoint=--enable-auto-tool-choice)
 
 **meta-llama/Llama-3.2-3B-Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-2-3b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.2-3b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.2-3B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.2_json.jinja&entrypoint=--enable-auto-tool-choice)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-2-3b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.2-3b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.2-3B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.2_json.jinja&entrypoint=--enable-auto-tool-choice)
 
 **meta-llama/Llama-3.2-1B-Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-2-1b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.2-1b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.2-1B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.2_json.jinja&entrypoint=--enable-auto-tool-choice)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-meta-llama-3-2-1b-instruct&type=docker&image=koyeb%2Ftt-meta-llama-3.2-1b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&hc_grace_period%5B8000%5D=600&entrypoint=python&entrypoint=examples/docker-entrypoint.py&entrypoint=--model&entrypoint=meta-llama/Llama-3.2-1B-Instruct&entrypoint=--tool-call-parser&entrypoint=llama3_json&entrypoint=--chat-template&entrypoint=examples/tool_chat_template_llama3.2_json.jinja&entrypoint=--enable-auto-tool-choice)
 
 ### Usage example
 
