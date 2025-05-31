@@ -52,7 +52,7 @@ RUN pip install --no-cache-dir -e . && \
   pip install --no-cache-dir hf_transfer
 
 RUN case "$HF_MODEL" in \
-  "Qwen/Qwen2.5-7B-Instruct") \
+  "Qwen/Qwen2.5-7B-Instruct"|"meta-llama/Llama-3.2-11B-Vision-Instruct") \
     pip install --no-cache-dir -r /tt-metal/models/demos/llama3/requirements.txt ;; \
   *) \
     pip install --no-cache-dir -r /tt-metal/models/tt_transformers/requirements.txt ;; \
