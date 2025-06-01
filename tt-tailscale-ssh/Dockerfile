@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-amd64-release:latest-rc
+ARG BASE_IMAGE=ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-release-amd64:latest-rc
 
 FROM ${BASE_IMAGE}
 
@@ -18,6 +18,7 @@ RUN apt-get update && \
     curl \
     bash \
     git \
+    vim \
     iptables && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/debconf/* /var/log/* /tmp/* /var/tmp/*
 

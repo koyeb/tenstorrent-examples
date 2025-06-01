@@ -12,6 +12,9 @@ def model_files_to_download(
 ):
     files = list_repo_files(model)
 
+    if model == "meta-llama/Llama-3.2-11B-Vision-Instruct":
+        allow_patterns.append("original/*")
+
     filtered_files = [
         file
         for file in files
@@ -62,7 +65,7 @@ def main():
     jinja_env = Environment(loader=FileSystemLoader(str(templates_path)))
     template = jinja_env.get_template(args.dockerfile_template)
 
-    dockerfile_content = template.render(hf_model_files=files)
+    dockerfile_content = template.render(hf_model_files=files, hf_model=args.model)
 
     with open(output_path / args.dockerfile_output, "w") as f:
         f.write(dockerfile_content)

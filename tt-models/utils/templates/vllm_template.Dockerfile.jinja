@@ -15,7 +15,7 @@ ENV ARCH_NAME=wormhole_b0 \
   VLLM_TARGET_DEVICE="tt" \
   MESH_DEVICE=N300 \
   WH_ARCH_YAML=wormhole_b0_80_arch_eth_dispatch.yaml \
-  HF_HOME=/mod.el-cache \
+  HF_HOME=/model-cache \
   HF_HUB_ENABLE_HF_TRANSFER=1 \
   HF_MODEL=$HF_MODEL
 
@@ -31,6 +31,7 @@ RUN git clone \
 WORKDIR /tt-metal
 
 RUN ./build_metal.sh
+
 RUN python3 -m venv venv
 
 RUN pip install --no-cache-dir --force-reinstall pip==21.2.4 && \
@@ -52,7 +53,7 @@ RUN pip install --no-cache-dir -e . && \
   pip install --no-cache-dir hf_transfer
 
 RUN case "$HF_MODEL" in \
-  "Qwen/Qwen2.5-7B-Instruct") \
+  "Qwen/Qwen2.5-7B-Instruct"|"meta-llama/Llama-3.2-11B-Vision-Instruct") \
     pip install --no-cache-dir -r /tt-metal/models/demos/llama3/requirements.txt ;; \
   *) \
     pip install --no-cache-dir -r /tt-metal/models/tt_transformers/requirements.txt ;; \
@@ -70,6 +71,14 @@ snapshot_download(
 )
 EOF
 {% endfor %}
+
+{% if hf_model == "meta-llama/Llama-3.2-11B-Vision-Instruct" %}
+RUN find /model-cache -name 'consolidated.pth' -exec bash -c 'for f; do mv "$f" "${f%/*}/consolidated.00.pth"; done' _ {} + && \
+  TARGET_DIR=$(dirname $(find /model-cache -name 'consolidated.00.pth' | head -n 1)) && \
+  ln -s "$TARGET_DIR" /Llama-3.2-11B-Vision-Instruct
+
+ENV LLAMA_DIR=/Llama-3.2-11B-Vision-Instruct
+{% endif %}
 
 ENV HF_HUB_OFFLINE=1
 

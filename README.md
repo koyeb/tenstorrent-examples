@@ -17,13 +17,13 @@ To deploy your first service using Tenstorrent instances on Koyeb, you need:
 
 Using this one-click application, you will be able to connect a Wormhole instance and establish a connection from your VSCode editor to Koyeb.
 
-_This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-amd64-release:latest-rc` Docker image with Docker pre-installed._
+_This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-release-amd64:latest-rc` Docker image with Docker pre-installed._
 
 #### [Development Environment using Tailscale for SSH access](https://github.com/koyeb/tenstorrent-examples/tree/main/tt-tailscale-ssh)
 
 Using this one-click application, you will be able to get direct SSH access to the Tenstorrent instance using Tailscale.
 
-_This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-amd64-release:latest-rc` Docker image with Docker pre-installed._
+_This application is using the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-release-amd64:latest-rc` Docker image with Docker pre-installed._
 
 #### [One-click models](https://github.com/koyeb/tenstorrent-examples/tree/main/tt-models)
 
