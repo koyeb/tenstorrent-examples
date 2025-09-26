@@ -1,0 +1,51 @@
+ARG BASE_IMAGE={{ base_image }}
+
+FROM ${BASE_IMAGE}
+
+ENV TT_MODEL_SPEC_JSON_PATH=/home/container_app_user/model_spec/tt_model_spec.json \
+    TT_LLAMA_TEXT_VER=tt_transformers \
+    LLAMA3_CACHE_PATH=/home/container_app_user/cache_root \
+    TT_CACHE_PATH=/home/container_app_user/cache_root \
+    PORT=8000
+
+
+ENV HF_HOME=/model_cache \
+    HF_MODEL_REPO_ID={{hf_model}} \
+    HF_HUB_ENABLE_HF_TRANSFER=1 \
+    HF_HUB_DISABLE_XET=1
+
+
+RUN pip install --no-cache-dir hf_transfer huggingface_hub
+
+# Create model spec directory and copy JSON payload
+RUN mkdir -p /home/container_app_user/model_spec
+RUN cat > /home/container_app_user/model_spec/tt_model_spec.json << 'EOF'
+{{ model_spec_json }}
+EOF
+
+{% for f in hf_model_files %}
+RUN --mount=type=secret,id=hf_token,env=HF_TOKEN \
+  python - <<EOF
+import os
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="{{hf_model}}",
+    allow_patterns=["{{ f }}"]
+)
+EOF
+{% endfor %}
+
+RUN  SNAPSHOT_PATH=$(find /model_cache -type d -path '*/snapshots/*' | head -n 1) \
+    && ln -s "$SNAPSHOT_PATH" /model_weights
+
+RUN mkdir -p /home/container_app_user/cache_root
+
+ENV HF_HUB_OFFLINE=1 \
+  CACHE_ROOT=/home/container_app_user/cache_root \
+  MODEL_WEIGHTS_PATH=/model_weights \
+  HF_MODEL=/model_weights \
+  LLAMA3_CKPT_DIR=/model_weights \
+  LLAMA3_TOKENIZER_PATH=/model_weights/tokenizer.model
+
+ENTRYPOINT ["/bin/bash", "-c", "source ${PYTHON_ENV_DIR}/bin/activate && python run_vllm_api_server.py"]
