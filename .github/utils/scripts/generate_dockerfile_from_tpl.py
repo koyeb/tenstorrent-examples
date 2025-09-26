@@ -52,6 +52,18 @@ def parse_args():
         default=["*.json", "*.py", "*.safetensors", "*.txt", "*.model"],
         help="A list of allowed patterns for snapshot download.",
     )
+    parser.add_argument(
+        "--base-image",
+        type=str,
+        required=True,
+        help="The base Docker image to use in the Dockerfile.",
+    )
+    parser.add_argument(
+        "--model-spec-json",
+        type=str,
+        required=True,
+        help="The JSON model specification to embed in the Dockerfile.",
+    )
     return parser.parse_args()
 
 
@@ -60,14 +72,22 @@ def main():
     files = model_files_to_download(args.model, args.allow_patterns)
 
     templates_path = Path(__file__).parent.parent / "templates"
-    output_path = Path(__file__).parent.parent.parent.parent
+    output_file_path = Path(args.dockerfile_output)
+
+    # Create the output directory if it doesn't exist
+    output_file_path.parent.mkdir(parents=True, exist_ok=True)
 
     jinja_env = Environment(loader=FileSystemLoader(str(templates_path)))
     template = jinja_env.get_template(args.dockerfile_template)
 
-    dockerfile_content = template.render(hf_model_files=files, hf_model=args.model)
+    dockerfile_content = template.render(
+        hf_model_files=files,
+        hf_model=args.model,
+        base_image=args.base_image,
+        model_spec_json=args.model_spec_json,
+    )
 
-    with open(output_path / args.dockerfile_output, "w") as f:
+    with open(output_file_path, "w") as f:
         f.write(dockerfile_content)
 
 
