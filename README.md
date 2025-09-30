@@ -73,39 +73,39 @@ Deploy pre-configured AI models optimized for Tenstorrent hardware. Model weight
 
 **Meta Llama 3.1 8B Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-1-8b-instruct&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.1-8b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-1-8b-instruct&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.1-8b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.1 8B**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-1-8b&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.1-8b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-1-8b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.1-8b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 11B**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-11b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-11b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 11B Vision Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b-vision-instruct&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-11b-vision-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b-vision-instruct&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-11b-vision-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 11B Vision**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b-vision&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-11b-vision&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-11b-vision&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-11b-vision&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 3B Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-3b-instruct&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-3b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-3b-instruct&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-3b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 3B**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-3b&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-3b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-3b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-3b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 1B Instruct**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-1b-instruct&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-1b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-1b-instruct&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-1b-instruct&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 **Meta Llama 3.2 1B**
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-1b&type=docker&image=koyeb%2Ftt-n300-meta-llama-llama-3.2-1b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=0&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-1b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-1b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
 ## Usage Examples
 
