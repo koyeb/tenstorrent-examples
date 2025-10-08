@@ -8,7 +8,10 @@ for _, model_spec in MODEL_SPECS.items():
     if (
         (model_spec.device_type == DeviceTypes.N300)
         and model_spec.device_model_spec.default_impl
-        and (model_spec.status == ModelStatusTypes.FUNCTIONAL)
+        and (
+            model_spec.status == ModelStatusTypes.FUNCTIONAL
+            or model_spec.status == ModelStatusTypes.EXPERIMENTAL
+        )
     ):
         model_dict = model_spec.get_serialized_dict()
 
