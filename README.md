@@ -107,6 +107,10 @@ Deploy pre-configured AI models optimized for Tenstorrent hardware. Model weight
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-meta-llama-llama-3-2-1b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-meta-llama-llama-3.2-1b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
 
+**Arcee AI AFM-4.5B**
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-n300-afm-4-5b&type=docker&image=registry01.prod.koyeb.com%2Fkoyeb%2Ftt-n300-arcee-ai-afm-4.5b&instance_type=gpu-tenstorrent-n300s&regions=na&instances_min=1&autoscaling_sleep_idle_delay=300&hc_grace_period%5B8000%5D=898)
+
 ## Usage Examples
 
 Once the model is deployed, you can interact with it using the OpenAI-compatible API:
