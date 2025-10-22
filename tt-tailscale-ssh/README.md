@@ -16,7 +16,7 @@ To use this example, you need:
 
 Get started by creating the service on Koyeb by clicking the button below:
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-tailscale-ssh&type=docker&image=koyeb%2Ftt-tailscale-ssh&privileged=true&service_type=worker&instance_type=gpu-tenstorrent-n300s&regions=na&env%5BTAILSCALE_AUTHKEY%5D=REPLACE_ME&env%5BNODE_NAME%5D=tt-on-koyeb)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=tt-tailscale-ssh&type=docker&image=koyeb%2Ftt-tailscale-ssh&privileged=true&service_type=worker&instance_type=gpu-tenstorrent-n300s&regions=na&env%5BTAILSCALE_AUTHKEY%5D=REPLACE_ME&env%5BNODE_NAME%5D=tt-on-koyeb&volume_path%5Btt-data%5D=%2Fworkdir&volume_size%5Btt-data%5D=10)
 
 Clicking on this button brings you to the Koyeb Service creation page with the settings pre-configured to launch this application. Make sure to modify the `TAILSCALE_AUTHKEY` environment variable with your own value during the configuration process.
 
