@@ -12,6 +12,7 @@ This repository serves as a starting point for using on-demand Tenstorrent insta
     - [Requirements](#requirements)
   - [Development Environments](#development-environments)
     - [VSCode Integration](#vscode-integration)
+    - [SSH Access via Koyeb TCP Proxy](#ssh-access-via-koyeb-tcp-proxy)
     - [SSH Access via Tailscale](#ssh-access-via-tailscale)
   - [One-Click Model Deployment](#one-click-model-deployment)
     - [Available Models](#available-models)
@@ -42,6 +43,20 @@ Connect your VSCode editor directly to a Tenstorrent instance for seamless devel
 - Full root access for custom configurations
 
 [**📖 View detailed setup guide →**](https://github.com/koyeb/tenstorrent-examples/tree/main/tt-vsc-tunnel)
+
+_Uses the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-release-amd64:latest-rc` Docker image with Docker pre-installed._
+
+### SSH Access via Koyeb TCP Proxy
+
+Get direct SSH access to your Tenstorrent instance using Koyeb TCP Proxy.
+
+**Features:**
+
+- Direct SSH access to your Tenstorrent instance
+- Secure connection through Koyeb TCP Proxy
+- Full root access for custom configurations
+
+[**📖 View detailed setup guide →**](https://github.com/koyeb/tenstorrent-examples/tree/main/tt-ssh)
 
 _Uses the official `ghcr.io/tenstorrent/tt-metal/tt-metalium-ubuntu-22.04-release-amd64:latest-rc` Docker image with Docker pre-installed._
 

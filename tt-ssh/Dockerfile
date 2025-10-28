@@ -4,23 +4,19 @@ FROM ${BASE_IMAGE}
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    apt-utils \
-    ca-certificates \
-    openssh-client \
-    iptables \
-    gnupg \
-    software-properties-common \
-    wget \
-    libc6 \
-    libstdc++6 \
-    curl \
-    bash \
-    git \
-    vim \
-    iptables && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/debconf/* /var/log/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y openssh-server sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /root/.ssh \
+    && touch /root/.ssh/authorized_keys \
+    && chmod 700 /root/.ssh \
+    && chmod 600 /root/.ssh/authorized_keys
+
+RUN echo "HostKeyAlgorithms +ssh-rsa" >>/etc/ssh/sshd_config \
+    && echo "PubkeyAcceptedKeyTypes +ssh-rsa" >>/etc/ssh/sshd_config
+
+RUN service ssh start
 
 # Docker
 
@@ -49,12 +45,6 @@ ADD https://raw.githubusercontent.com/koyeb/koyeb-docker-compose/refs/heads/mast
 RUN chmod +x /usr/local/bin/dockerd-entrypoint.sh /usr/local/bin/docker-entrypoint.sh /usr/local/bin/dind /usr/local/bin/koyeb-entrypoint.sh
 
 VOLUME /var/lib/docker
-
-# Tailscale
-
-COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscaled /workdir/tailscaled
-COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscale /workdir/tailscale
-RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
 
 WORKDIR /workdir
 
