@@ -6,7 +6,10 @@ matrix = {"include": []}
 
 for _, model_spec in MODEL_SPECS.items():
     if (
-        (model_spec.device_type == DeviceTypes.N300)
+        (
+            model_spec.device_type == DeviceTypes.N300
+            or model_spec.device_type == DeviceTypes.P150
+        )
         and model_spec.device_model_spec.default_impl
         and (
             model_spec.status == ModelStatusTypes.FUNCTIONAL
