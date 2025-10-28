@@ -45,3 +45,13 @@ jobs:
           tags: |
             koyeb/tt-vsc-tunnel:ubuntu-22.04
             koyeb/tt-vsc-tunnel:latest
+
+      - name: Build and push images for koyeb/tt-ssh Ubuntu 22.04
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: ./tt-ssh
+          file: ./tt-ssh/Dockerfile
+          tags: |
+            koyeb/tt-ssh:ubuntu-22.04
+            koyeb/tt-ssh:latest
